@@ -1,5 +1,5 @@
 from core.extensions import db
-from user_model import UserModel
+from applications.user_app.models.user_model import UserModel
 
 
 class DoctorModel(UserModel):
