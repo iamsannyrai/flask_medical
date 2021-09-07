@@ -1,12 +1,17 @@
 from flask import Flask
 
+from blueprints import register_blueprint
 from core.enums import Environment
 from configuration.config import config
-from core.extensions import db
+from core.extensions import db, ma
 
 
 def create_app(environment: Environment):
     app = Flask(__name__)
     app.config.from_object(config[environment])
     db.init_app(app)
+    ma.init_app(app)
+    register_blueprint(app)
+    with app.app_context():
+        db.create_all()
     return app
