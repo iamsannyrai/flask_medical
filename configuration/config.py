@@ -13,12 +13,11 @@ class Config:
 class DevelopmentConfig(Config):
     ENV = "development"
     SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI')
-    pass
 
 
-class ProductionConfig:
+class ProductionConfig(Config):
     DEBUG = False
-    pass
+    SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI_PROD')
 
 
 config = {

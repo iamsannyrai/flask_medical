@@ -12,5 +12,3 @@ class UserModel(BaseModel):
     phone_number = db.Column(db.String(10))
     blood_group = db.Column(db.String)
     password = db.Column(db.String)
-    role_id = db.Column(db.String, db.ForeignKey('roles.id'))
-    role = db.relationship('RoleModel')
